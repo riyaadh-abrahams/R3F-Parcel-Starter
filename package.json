@@ -1,0 +1,27 @@
+{
+  "name": "typefighter",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@parcel/transformer-glsl": "^2.0.1",
+    "@parcel/transformer-sass": "^2.0.1",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "parcel": "^2.0.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@react-three/drei": "^8.3.1",
+    "@react-three/fiber": "^7.0.24",
+    "@react-three/xr": "^3.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "three": "^0.136.0"
+  }
+}
