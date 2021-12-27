@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "gltf": "cd src/components && npx @react-three/gltfjsx ../assets/models/Astronaut.glb -t"
+    "gltf": "cd src/components/objects && npx @react-three/gltfjsx ../../assets/models/Robot.glb -t"
   },
   "devDependencies": {
     "@parcel/config-default": "^2.0.1",

@@ -8,7 +8,7 @@ export default function Floor(props: MeshProps) {
   const [elapsed, setElapsed] = useState(0);
 
   const { floorColor } = useControls({
-    floorColor: "lime",
+    floorColor: "hotpink",
   });
 
   useFrame((state, delta) => {
@@ -17,13 +17,8 @@ export default function Floor(props: MeshProps) {
 
   return (
     <mesh {...props} ref={mesh} rotation={[Math.PI / 2, 0, 0]}>
-      <boxGeometry args={[500, 500, 0.2, 500, 500, 2]} />
-      <vertexDistortMaterial
-        attach="material"
-        color={floorColor}
-        time={elapsed}
-        wireframe
-      />
+      <boxGeometry args={[5, 5, 0.2, 50, 50, 2]} />
+      <meshStandardMaterial attach="material" color={floorColor} />
     </mesh>
   );
 }

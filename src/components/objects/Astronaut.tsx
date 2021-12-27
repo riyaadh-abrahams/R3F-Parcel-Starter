@@ -10,7 +10,10 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 /**
  * This line was manually added to help parcel import the file
  */
-const downloadUrl = new URL("../assets/models/Astronaut.glb", import.meta.url);
+const downloadUrl = new URL(
+  "../../assets/models/Astronaut.glb",
+  import.meta.url
+);
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -26,6 +29,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
 
   /**
    * Manually Replace the useGLTF() paramater with "downloadUrl.href"
+   * This will allow it to use the correctly hashed filename. e.g. Astronaut.a39a75bc.glb
    */
   const { nodes, materials } = useGLTF(
     downloadUrl.href

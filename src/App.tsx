@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
 import { Sky, OrbitControls, Float, Stars } from "@react-three/drei";
-import Box from "./components/Box";
-import Floor from "./components/Floor";
-import * as THREE from "three";
+import Box from "./components/objects/Box";
+import Floor from "./components/objects/Floor";
 import { Canvas } from "@react-three/fiber";
-import Astronaut from "./components/Astronaut";
+import Astronaut from "./components/objects/Astronaut";
+import PageLoader from "./components/helpers/PageLoader";
 
 //materials
 import "./materials/color-noise/material";
@@ -13,22 +13,9 @@ import "./materials/vertex-distort/material";
 const App = () => {
   return (
     <Canvas>
-      <Suspense fallback={null}>
+      <Suspense fallback={<PageLoader />}>
         <OrbitControls />
-        <Sky
-          distance={450000}
-          sunPosition={[0, 0, 0]}
-          inclination={0.2}
-          azimuth={0.01}
-        />
-        <Stars
-          radius={100}
-          depth={50}
-          count={5000}
-          factor={4}
-          saturation={1}
-          fade
-        />
+
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Floor />
