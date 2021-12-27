@@ -25,7 +25,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
 
   /**
-   * Manually Replace the useGLTF paramater with "downloadUrl.href"
+   * Manually Replace the useGLTF() paramater with "downloadUrl.href"
    */
   const { nodes, materials } = useGLTF(
     downloadUrl.href
