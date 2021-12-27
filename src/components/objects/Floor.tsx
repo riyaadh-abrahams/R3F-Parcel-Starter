@@ -30,7 +30,7 @@ export default function Floor(props: MeshProps) {
 
   return (
     <mesh {...props} ref={mesh} rotation={[Math.PI / 2, 0, 0]}>
-      <boxGeometry args={[5, 5, 0.2, 50, 50, 2]} />
+      <boxGeometry args={[7, 7, 0.1, 50, 50, 2]} />
       <meshStandardMaterial
         attach="material"
         color={floorColor}

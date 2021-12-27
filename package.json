@@ -13,7 +13,6 @@
     "materials": "./src/materials",
     "models": "./src/assets/models",
     "objects": "./src/components/objects"
-    
   },
   "devDependencies": {
     "@parcel/config-default": "^2.0.1",
@@ -29,6 +28,7 @@
   "dependencies": {
     "@react-three/drei": "^8.3.1",
     "@react-three/fiber": "^7.0.24",
+    "@react-three/postprocessing": "^2.1.2",
     "@react-three/xr": "^3.2.0",
     "@types/three": "^0.135.0",
     "leva": "^0.9.18",
