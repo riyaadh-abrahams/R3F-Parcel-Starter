@@ -1,15 +1,23 @@
-import { useFrame } from "@react-three/fiber";
+import { MeshProps, useFrame } from "@react-three/fiber";
 import { useRef, useState, useEffect } from "react";
+import { useControls } from "leva";
+import { Mesh } from "three";
 
-export default function Box(props) {
-  const mesh = useRef();
+export default function Box(props: MeshProps) {
+  const { color } = useControls({
+    color: "#FCA6D6",
+  });
+
+  const mesh = useRef<Mesh>();
 
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
   const [elapsed, setElapsed] = useState(0);
 
   useFrame((state, delta) => {
-    mesh.current.rotation.z += delta;
+    if (mesh.current) {
+      mesh.current.rotateX(delta);
+    }
     setElapsed(state.clock.elapsedTime);
   });
 
@@ -29,7 +37,7 @@ export default function Box(props) {
       <boxGeometry args={[1, 1, 1]} />
       <colorShiftMaterial
         attach="material"
-        color={hovered ? "lime" : "orange"}
+        color={hovered ? "#e2fca7" : color}
         time={elapsed}
       />
     </mesh>
