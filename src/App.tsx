@@ -4,6 +4,7 @@ import Box from "./components/Box";
 import * as THREE from "three";
 import "./materials/color-noise/material";
 import { Canvas } from "@react-three/fiber";
+import Astronaut from "./components/Astronaut";
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
         />
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-
+        <Astronaut position={[0, 0.1, -2]} />
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <boxGeometry args={[5, 5, 0.2]} />
           <meshStandardMaterial color="hotpink" />

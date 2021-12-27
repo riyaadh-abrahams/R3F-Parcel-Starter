@@ -11,6 +11,8 @@
             "ESNext"
         ],
         "target": "ES5",
+        "module": "es2020",
+        "moduleResolution": "node",
         "jsx": "react-jsx",
         "downlevelIteration": true,
         "baseUrl": "src"

@@ -1,14 +1,17 @@
 {
-  "name": "typefighter",
+  "name": "r3f-starter",
   "version": "1.0.0",
   "description": "",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build",
+    "gltf": "cd src/components && npx @react-three/gltfjsx ../assets/models/Astronaut.glb -t"
   },
   "devDependencies": {
+    "@parcel/config-default": "^2.0.1",
     "@parcel/transformer-glsl": "^2.0.1",
+    "@parcel/transformer-raw": "^2.0.1",
     "@parcel/transformer-sass": "^2.0.1",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
