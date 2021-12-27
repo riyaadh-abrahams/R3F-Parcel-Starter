@@ -28,3 +28,5 @@ declare global {
     }
   }
 }
+
+export default VertexDistortMaterial;

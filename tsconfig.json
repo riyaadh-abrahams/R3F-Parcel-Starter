@@ -10,11 +10,19 @@
             "es2015",
             "ESNext"
         ],
+        
         "target": "ES5",
         "module": "es2020",
         "moduleResolution": "node",
         "jsx": "react-jsx",
         "downlevelIteration": true,
-        "baseUrl": "src"
+        "baseUrl": "src",
+        "paths": {
+            "textures/*": ["assets/textures/*"],
+            "materials/*": ["materials/*"],
+            "models/*": ["assets/models/*"],
+            "objects/*": ["components/objects/*"]
+          }
+        
     }
 }

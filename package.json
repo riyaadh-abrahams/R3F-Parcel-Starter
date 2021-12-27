@@ -8,6 +8,13 @@
     "build": "parcel build",
     "gltf": "cd src/components/objects && npx @react-three/gltfjsx ../../assets/models/Robot.glb -t"
   },
+  "alias": {
+    "textures": "./src/assets/textures",
+    "materials": "./src/materials",
+    "models": "./src/assets/models",
+    "objects": "./src/components/objects"
+    
+  },
   "devDependencies": {
     "@parcel/config-default": "^2.0.1",
     "@parcel/transformer-glsl": "^2.0.1",

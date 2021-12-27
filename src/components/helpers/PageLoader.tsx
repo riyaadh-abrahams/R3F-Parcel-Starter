@@ -6,7 +6,7 @@ export default function PageLoader() {
   return (
     <Html center>
       <span style={{ color: "black", fontWeight: "bold" }}>
-        {progress} % loaded
+        {Math.floor(progress)} % loaded
       </span>
     </Html>
   );
