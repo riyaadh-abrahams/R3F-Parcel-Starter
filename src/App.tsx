@@ -17,36 +17,43 @@ import "./materials/default-custom/material";
  * Other Imports
  */
 import { Suspense } from "react";
-import { OrbitControls, Float, GradientTexture } from "@react-three/drei";
+import {
+  OrbitControls,
+  GradientTexture,
+  ScrollControls,
+} from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import PageLoader from "./components/helpers/PageLoader";
 import { EffectComposer, SMAA } from "@react-three/postprocessing";
+import Revolve from "objects/Revolve";
 
 const App = () => {
   return (
     <Canvas camera={{ position: [-3.5, 3.5, 3.5] }}>
-      <GradientTexture
-        attach="background"
-        stops={[0, 1]} // As many stops as you want
-        colors={["hotpink", "aquamarine"]} // Colors need to match the number of stops
-        size={1024} // Size is optional, default = 1024
-      />
       <Suspense fallback={<PageLoader />}>
-        <EffectComposer multisampling={0}>
-          <SMAA />
-        </EffectComposer>
-        <OrbitControls makeDefault />
-
-        <ambientLight intensity={1.3} />
-        <Floor />
-        <Float speed={2} rotationIntensity={1} floatIntensity={3}>
-          <Astronaut
-            rotation={[0.1, 0, 0]}
-            scale={0.7}
-            position={[0, 0.5, -2]}
+        <ScrollControls pages={3}>
+          <GradientTexture
+            attach="background"
+            stops={[0, 1]} // As many stops as you want
+            colors={["hotpink", "aquamarine"]} // Colors need to match the number of stops
+            size={1024} // Size is optional, default = 1024
           />
-        </Float>
-        <Box position={[0, 1, 0]} />
+          <EffectComposer multisampling={0}>
+            <SMAA />
+          </EffectComposer>
+          <OrbitControls enableZoom={false} />
+
+          <ambientLight intensity={1.3} />
+          <Floor />
+          <Revolve>
+            <Astronaut
+              rotation={[0.4, 0, 0]}
+              scale={0.7}
+              position={[0, 0.5, 0]}
+            />
+          </Revolve>
+          <Box position={[0, 1, 0]} />
+        </ScrollControls>
       </Suspense>
     </Canvas>
   );
