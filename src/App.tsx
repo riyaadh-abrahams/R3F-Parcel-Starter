@@ -17,33 +17,36 @@ import "./materials/default-custom/material";
  * Other Imports
  */
 import { Suspense } from "react";
-import { OrbitControls, Float, Stage, Sky, Stars } from "@react-three/drei";
+import { OrbitControls, Float, GradientTexture } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import PageLoader from "./components/helpers/PageLoader";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { EffectComposer, SMAA } from "@react-three/postprocessing";
 
 const App = () => {
   return (
     <Canvas camera={{ position: [-3.5, 3.5, 3.5] }}>
+      <GradientTexture
+        attach="background"
+        stops={[0, 1]} // As many stops as you want
+        colors={["hotpink", "aquamarine"]} // Colors need to match the number of stops
+        size={1024} // Size is optional, default = 1024
+      />
       <Suspense fallback={<PageLoader />}>
+        <EffectComposer multisampling={0}>
+          <SMAA />
+        </EffectComposer>
         <OrbitControls makeDefault />
-        <Sky
-          distance={100000}
-          sunPosition={[0, 10, 10]}
-          turbidity={300}
-          azimuth={100}
-        />
-        <Stage environment="night" intensity={0.4} adjustCamera={false}>
-          <Floor />
-          <Float speed={2} rotationIntensity={1} floatIntensity={3}>
-            <Astronaut
-              rotation={[0.1, 0, 0]}
-              scale={0.7}
-              position={[0, 0.5, -2]}
-            />
-          </Float>
-          <Box position={[0, 1, 0]} />
-        </Stage>
+
+        <ambientLight intensity={1.3} />
+        <Floor />
+        <Float speed={2} rotationIntensity={1} floatIntensity={3}>
+          <Astronaut
+            rotation={[0.1, 0, 0]}
+            scale={0.7}
+            position={[0, 0.5, -2]}
+          />
+        </Float>
+        <Box position={[0, 1, 0]} />
       </Suspense>
     </Canvas>
   );
