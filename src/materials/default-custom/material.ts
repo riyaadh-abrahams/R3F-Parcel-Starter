@@ -4,29 +4,28 @@ import vertextShader from "./vert.glsl";
 import fragmentShader from "./frag.glsl";
 import * as THREE from "three";
 
-const VertexDistortMaterial = shaderMaterial(
-  { time: 0, color: new THREE.Color() },
+const DefaultCustomMaterial = shaderMaterial(
+  { color: new THREE.Color() },
   vertextShader,
   fragmentShader
 );
 
-extend({ VertexDistortMaterial });
+extend({ DefaultCustomMaterial });
 
 /**
  * Material Typings
  * This is used to ensure that typescrript will work properly with the custom material
  */
-type VertexDistortMaterialType = {
-  time: number;
+type DefaultCustomMaterialType = {
   color: THREE.ColorRepresentation;
 } & JSX.IntrinsicElements["shaderMaterial"];
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      vertexDistortMaterial: VertexDistortMaterialType;
+      defaultCustomMaterial: DefaultCustomMaterialType;
     }
   }
 }
 
-export default VertexDistortMaterial;
+export default DefaultCustomMaterial;

@@ -31,6 +31,7 @@
     "@react-three/postprocessing": "^2.1.2",
     "@react-three/xr": "^3.2.0",
     "@types/three": "^0.135.0",
+    "framer-motion": "^5.5.5",
     "leva": "^0.9.18",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
