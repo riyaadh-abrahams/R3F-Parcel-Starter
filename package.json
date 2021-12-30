@@ -1,5 +1,5 @@
 {
-  "name": "r3f-starter",
+  "name": "r3f-parcel-starter",
   "version": "1.0.0",
   "description": "",
   "author": "Your Name",
@@ -9,7 +9,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "gltf": "cd src/components/objects && npx @react-three/gltfjsx ../../assets/models/Fish.glb -t",
+    "gltf": "cd src/components/objects && npx @react-three/gltfjsx ../../assets/models/Astronaut.glb -t",
     "hello": "node gtlf.js"
   },
   "alias": {
