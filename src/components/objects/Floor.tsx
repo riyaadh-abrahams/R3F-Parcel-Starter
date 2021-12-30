@@ -23,6 +23,9 @@ export default function Floor(props: MeshProps) {
     aoMap: aoImage,
   });
 
+  /**
+   * Scale all the maps to 2x2 tiling
+   */
   Object.values(maps).forEach((map) => {
     map.wrapS = map.wrapT = RepeatWrapping;
     map.repeat.set(2, 2);

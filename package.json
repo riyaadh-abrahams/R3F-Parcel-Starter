@@ -2,17 +2,22 @@
   "name": "r3f-starter",
   "version": "1.0.0",
   "description": "",
+  "author": "Your Name",
+  "license": "ISC",
   "source": "src/index.html",
+  
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "gltf": "cd src/components/objects && npx @react-three/gltfjsx ../../assets/models/Robot.glb -t"
+    "gltf": "cd src/components/objects && npx @react-three/gltfjsx ../../assets/models/Fish.glb -t",
+    "hello": "node gtlf.js"
   },
   "alias": {
     "textures": "./src/assets/textures",
     "materials": "./src/materials",
     "models": "./src/assets/models",
     "objects": "./src/components/objects"
+   
   },
   "devDependencies": {
     "@parcel/config-default": "^2.0.1",
@@ -23,8 +28,6 @@
     "@types/react-dom": "^17.0.11",
     "parcel": "^2.0.1"
   },
-  "author": "Riyaadh Abrahams",
-  "license": "ISC",
   "dependencies": {
     "@react-three/drei": "^8.3.1",
     "@react-three/fiber": "^7.0.24",
