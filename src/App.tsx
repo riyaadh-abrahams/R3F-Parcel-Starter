@@ -21,38 +21,20 @@ import {
 import { Canvas } from "@react-three/fiber";
 import PageLoader from "./components/helpers/PageLoader";
 import { EffectComposer, SMAA } from "@react-three/postprocessing";
-import Revolve from "objects/Revolve";
-import Box from "objects/Box";
-import Floor from "objects/Floor";
-import Astronaut from "objects/Astronaut";
+import Globe from "objects/Globe";
 
 const App = () => {
   return (
     <Canvas camera={{ position: [3.5, 3.5, -3.5] }}>
       <Suspense fallback={<PageLoader />}>
+        <color attach="background" args={["black"]} />
         <ScrollControls pages={3}>
-          <GradientTexture
-            attach="background"
-            stops={[0, 1]}
-            colors={["hotpink", "aquamarine"]}
-            size={1024}
-          />
           <EffectComposer multisampling={0}>
             <SMAA />
           </EffectComposer>
-          <OrbitControls enableZoom={false} />
+          <OrbitControls />
 
-          <Stage adjustCamera={false}>
-            <Floor />
-            <Revolve>
-              <Astronaut
-                rotation={[0.4, 0, 0]}
-                scale={0.7}
-                position={[0, 0.5, 0]}
-              />
-            </Revolve>
-            <Box position={[0, 1, 0]} />
-          </Stage>
+          <Globe />
         </ScrollControls>
       </Suspense>
     </Canvas>

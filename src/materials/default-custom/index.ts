@@ -5,7 +5,13 @@ import fragmentShader from "./frag.glsl";
 import * as THREE from "three";
 
 const DefaultCustomMaterial = shaderMaterial(
-  { color: new THREE.Color() },
+  {
+    scale: 1,
+    size: 1,
+    shift: 0,
+    visibility: new THREE.Texture(),
+    shape: new THREE.Texture(),
+  },
   vertextShader,
   fragmentShader
 );
@@ -17,7 +23,11 @@ extend({ DefaultCustomMaterial });
  * This is used to ensure that typescrript will work properly with the custom material
  */
 type DefaultCustomMaterialType = {
-  color: THREE.ColorRepresentation;
+  scale: Number;
+  size: Number;
+  shift: Number;
+  visibility: THREE.Texture;
+  shape: THREE.Texture;
 } & JSX.IntrinsicElements["shaderMaterial"];
 
 declare global {
