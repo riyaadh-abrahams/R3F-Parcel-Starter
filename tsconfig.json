@@ -18,6 +18,7 @@
         "downlevelIteration": true,
         "baseUrl": "src",
         "paths": {
+            "assets/*": ["assets/*"],
             "textures/*": ["assets/textures/*"],
             "materials/*": ["materials/*"],
             "models/*": ["assets/models/*"],

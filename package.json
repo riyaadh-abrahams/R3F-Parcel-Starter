@@ -13,6 +13,7 @@
     "hello": "node gtlf.js"
   },
   "alias": {
+    "assets": "./src/assets",
     "textures": "./src/assets/textures",
     "materials": "./src/materials",
     "models": "./src/assets/models",

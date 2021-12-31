@@ -6,10 +6,8 @@ import { DoubleSide, Mesh, RepeatWrapping } from "three";
 /**
  * Textures
  */
-import diffuseImage from "textures/coral-fort/diffuse.jpg";
-import displacementmage from "textures/coral-fort/displacement.png";
-import normalImage from "textures/coral-fort/normal.jpg";
-import aoImage from "textures/coral-fort/ao.jpg";
+import diffuseImage from "textures/mars/DiffuseMap.jpg";
+import displacementmage from "textures/mars/DisplacementMap.jpg";
 import { useTexture } from "@react-three/drei";
 
 export default function Floor(props: MeshProps) {
@@ -19,8 +17,6 @@ export default function Floor(props: MeshProps) {
   const maps = useTexture({
     diffuseMap: diffuseImage,
     displacementMap: displacementmage,
-    normalMap: normalImage,
-    aoMap: aoImage,
   });
 
   /**
@@ -28,7 +24,7 @@ export default function Floor(props: MeshProps) {
    */
   Object.values(maps).forEach((map) => {
     map.wrapS = map.wrapT = RepeatWrapping;
-    map.repeat.set(2, 2);
+    map.repeat.set(4, 4);
   });
 
   const { floorColor } = useControls({
@@ -46,10 +42,8 @@ export default function Floor(props: MeshProps) {
         attach="material"
         color={floorColor}
         map={maps.diffuseMap}
-        normalMap={maps.normalMap}
-        aoMap={maps.aoMap}
         displacementMap={maps.displacementMap}
-        displacementScale={0.1}
+        displacementScale={-0.2}
         side={DoubleSide}
       />
     </mesh>

@@ -16,6 +16,7 @@ import {
   OrbitControls,
   GradientTexture,
   ScrollControls,
+  Stage,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import PageLoader from "./components/helpers/PageLoader";
@@ -41,16 +42,17 @@ const App = () => {
           </EffectComposer>
           <OrbitControls enableZoom={false} />
 
-          <ambientLight intensity={1.3} />
-          <Floor />
-          <Revolve>
-            <Astronaut
-              rotation={[0.4, 0, 0]}
-              scale={0.7}
-              position={[0, 0.5, 0]}
-            />
-          </Revolve>
-          <Box position={[0, 1, 0]} />
+          <Stage adjustCamera={false}>
+            <Floor />
+            <Revolve>
+              <Astronaut
+                rotation={[0.4, 0, 0]}
+                scale={0.7}
+                position={[0, 0.5, 0]}
+              />
+            </Revolve>
+            <Box position={[0, 1, 0]} />
+          </Stage>
         </ScrollControls>
       </Suspense>
     </Canvas>
