@@ -1,21 +1,20 @@
-import { useRef, useState, useEffect, useLayoutEffect } from "react";
-import {
-  SphereBufferGeometryProps,
-  useFrame,
-  useLoader,
-} from "@react-three/fiber";
-import { Points, Sphere } from "@react-three/drei";
-import { useControls } from "leva";
+import { useRef, useState, useLayoutEffect } from "react";
+import { useFrame, useLoader } from "@react-three/fiber";
+
 import * as THREE from "three";
 import earthImage from "textures/earthspec1k.jpg";
 import diskImage from "textures/circle.png";
 
 function GlobePoints() {
-  var ref = useRef<SphereBufferGeometryProps>();
-  var colors = new Array<number>();
+  var ref = useRef();
+  var colors = [];
   var color = new THREE.Color();
   var q = 0x0000ff * 0.25;
 
+  /**
+   * you should use useLayoutEffect if you want to run some modifications on your component before it renders
+   * In case case, we want to prepare and add the color attributes
+   */
   useLayoutEffect(() => {
     if (ref.current?.attributes && ref.current?.setAttribute) {
       for (let i = 0; i < ref.current.attributes.position.count; i++) {
@@ -33,7 +32,7 @@ function GlobePoints() {
   return <sphereBufferGeometry ref={ref} args={[5, 120, 60]} />;
 }
 
-export default function Globe() {
+export default function Globe(props) {
   const [texture, disk] = useLoader(THREE.TextureLoader, [
     earthImage,
     diskImage,
@@ -52,7 +51,7 @@ export default function Globe() {
   });
 
   return (
-    <group>
+    <group props={props}>
       <points ref={ref}>
         <GlobePoints />
         <defaultCustomMaterial
@@ -65,6 +64,10 @@ export default function Globe() {
           blending={THREE.AdditiveBlending}
         />
       </points>
+      <mesh scale={4.9}>
+        <sphereGeometry />
+        <meshBasicMaterial color="black" />
+      </mesh>
     </group>
   );
 }
